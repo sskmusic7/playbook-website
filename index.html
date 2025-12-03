@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playbook MPR - Where Tech Meets Creativity</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #a8b5e8 0%, #6b4c93 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .gradient-line {
+      position: absolute;
+      width: 200%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(-45deg);
+      top: 50%;
+      left: -50%;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      color: white;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      margin-right: 12px;
+    }
+
+    .logo-icon::before,
+    .logo-icon::after {
+      content: '';
+      position: absolute;
+      border-radius: 4px;
+      background: white;
+    }
+
+    .logo-icon::before {
+      width: 30px;
+      height: 36px;
+      left: 0;
+      top: 0;
+    }
+
+    .logo-icon::after {
+      width: 32px;
+      height: 38px;
+      right: 0;
+      top: 2px;
+      opacity: 0.9;
+    }
+
+    .logo-text {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-mpr {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-left: 8px;
+    }
+
+    .headline {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .headline h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .subheadline {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      margin-top: 50px;
+      padding: 16px 40px;
+      background: linear-gradient(90deg, #ff6b35 0%, #ffd23f 100%);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .headline h1 {
+        font-size: 2.5rem;
+      }
+
+      .subheadline {
+        font-size: 1rem;
+        padding: 0 20px;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-line"></div>
+  
+  <div class="logo-container">
+    <div class="logo-icon"></div>
+    <div>
+      <span class="logo-text">Playbook</span>
+      <span class="logo-mpr">MPR</span>
+    </div>
+  </div>
+
+  <div class="headline">
+    <h1>Where Tech Meets<br>Creativity</h1>
+    <p class="subheadline">
+      AI-Powered Business Solutions to Strengthen Customer Relationships & Prevent<br>Revenue Loss
+    </p>
+  </div>
+
+  <a href="mailto:kayah.mitchell@playbookmpr.com" class="cta-button">Book Free Consultation</a>
+</body>
+</html>
+
