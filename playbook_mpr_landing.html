@@ -1,608 +1,808 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-style-mode" content="1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/white logo.png">
     <title>Playbook MPR - Where Tech Meets Creativity</title>
-    <link rel="icon" type="image/png" href="images/white logo.png">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23FFFFFF"></path></svg>') bottom center;
-            background-size: cover;
-            animation: wave 15s ease-in-out infinite;
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(-50px); }
-        }
-
-        .hero-content {
-            z-index: 2;
-            position: relative;
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .logo {
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-            filter: brightness(0) invert(1); /* Makes logo white for dark background */
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.2s forwards;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        .about-content {
-            text-align: center;
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #34495e;
-            line-height: 1.8;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: #1a1a2e;
-            color: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #ecf0f1;
-        }
-
-        .service-card .price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #feca57;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: #bdc3c7;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1.5rem;
-            color: #feca57;
-        }
-
-        .contact-info p {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info i {
-            margin-right: 1rem;
-            color: #feca57;
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
+        .price-tag {
             display: block;
-            margin-bottom: 0.5rem;
-            color: #ecf0f1;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.9);
-            color: #2c3e50;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
+            color: #feca57;
             font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1a1a2e;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .footer-logo {
-            max-width: 200px;
-            margin-bottom: 1rem;
-            filter: brightness(0) invert(1);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .logo {
-                max-width: 300px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: none;
-        }
-
-        .loading.show {
-            display: inline-block;
-        }
-
-        /* Success Message */
-        .success-message {
-            display: none;
-            color: #27ae60;
-            text-align: center;
-            margin-top: 1rem;
-            font-weight: 600;
-        }
-
-        .success-message.show {
-            display: block;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
-<body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <!-- Logo Integration -->
-            <img src="images/white logo.png" alt="Playbook MPR Logo" class="logo">
-            <h1>Where Tech Meets Creativity</h1>
-            <p>AI-Powered Business Solutions to Strengthen Customer Relationships & Prevent Revenue Loss</p>
-            <a href="#contact" class="cta-button">Book Free Consultation</a>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <h2 class="section-title">About Playbook MPR</h2>
-            <div class="about-content">
-                <p>We specialize in building and producing creative AI-powered automated solutions for businesses to help retain and strengthen customer and client relationships while preventing loss of potential revenue.</p>
-                <p>Our team combines cutting-edge technology with creative innovation to deliver comprehensive digital solutions that drive business growth and enhance customer engagement.</p>
-            </div>
-        </div>
-    </section>
+<body class="index-one">
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <!-- Website Development -->
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Website Development</h3>
-                    <div class="price">From £500</div>
-                    <p>Custom websites that convert visitors into customers. Professional, responsive designs optimized for performance and user experience.</p>
-                </div>
+    <!-- header area start -->
+    <header class="header-area header-one header--sticky">
+        <div class="header-container-one">
+            <div class="header-wrapper">
+                <a href="playbook_mpr_landing.html" class="logo">
+                    <img src="images/white logo.png" alt="Playbook MPR Logo" style="max-height: 50px;">
+                </a>
+                <div class="header-right">
 
-                <!-- Hosting & Maintenance -->
-                <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Hosting & Maintenance</h3>
-                    <div class="price">£49/month</div>
-                    <p>Reliable hosting with 24/7 monitoring, regular updates, security patches, and performance optimization to keep your website running smoothly.</p>
-                </div>
+                    <nav class="nav-area drop-down-rts">
+                        <ul class="navbar-nav-1">
+                            <li class="menu-item main-nav-on">
+                                <a class="menu-link" href="playbook_mpr_landing.html"><span class="rolling-text">Home</span></a>
+                            </li>
+                            <li class="menu-item main-nav-on">
+                                <a class="menu-link" href="#about"><span class="rolling-text">About</span></a>
+                            </li>
+                            <li class="menu-item main-nav-on">
+                                <a class="menu-link" href="#services"><span class="rolling-text">Services</span></a>
+                            </li>
+                            <li class="menu-item main-nav-on">
+                                <a class="menu-link" href="#contact"><span class="rolling-text">Contact</span></a>
+                            </li>
+                        </ul>
+                    </nav>
 
-                <!-- AI Voice Agents -->
-                <div class="service-card">
-                    <div class="service-icon">🎙️</div>
-                    <h3>AI Voice Agents</h3>
-                    <div class="price">Bespoke Pricing</div>
-                    <p>Intelligent voice agents for handling out-of-hours calls, providing 24/7 customer support and lead qualification without human intervention.</p>
-                </div>
-
-                <!-- AI Newsletters -->
-                <div class="service-card">
-                    <div class="service-icon">📧</div>
-                    <h3>AI Newsletters</h3>
-                    <div class="price">£55/month</div>
-                    <p>Automated newsletter systems that nurture past customers and upsell opportunities with personalized, engaging content.</p>
-                </div>
-
-                <!-- Social Media Automation -->
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Social Media Automation</h3>
-                    <div class="price">Bespoke Pricing</div>
-                    <p>Automated social media posting agents that maintain consistent brand presence across all platforms with engaging, relevant content.</p>
-                </div>
-
-                <!-- Media Content Editing -->
-                <div class="service-card">
-                    <div class="service-icon">🎬</div>
-                    <h3>Media Content Editing</h3>
-                    <div class="price">Bespoke Pricing</div>
-                    <p>Professional editing services for photos, videos, and graphics to enhance your brand's visual appeal and marketing materials.</p>
-                </div>
-
-                <!-- Personal Chatbots -->
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>Personal Chatbots</h3>
-                    <div class="price">Bespoke Pricing</div>
-                    <p>Custom chatbots for out-of-hours personal assistance, lead generation, and customer support with natural conversation flow.</p>
-                </div>
-
-                <!-- Brand Identity -->
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Brand Identity</h3>
-                    <div class="price">From £45</div>
-                    <p>Complete branding solutions including logo design (£45), banners (£30), watermarks (£30), and complete brand kits (£100).</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><i>📧</i> contact@playbookmpr.com</p>
-                    <p><i>📞</i> +44 7729 740898</p>
-                    <p><i>📍</i> 26 Northwood Way, Upper Norwood, London SE19 1ET</p>
-                    <p><img src="images/linkedin-logo.png" alt="LinkedIn" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;"> LinkedIn: Playbook MPR</p>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm" action="https://docs.google.com/forms/d/YOUR_FORM_ID/formResponse" method="POST" target="hidden_iframe">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="entry.REPLACE_WITH_NAME_FIELD_ID" required>
+                    <div class="action-area">
+                        <div class="menu-btn">
+                            <div class="rts-offcanvas-wrapper">
+                                <div class="container-menu">
+                                    <div class="action-menu">
+                                        <div class="close-event"></div>
+                                        <div class="open-event">
+                                            <div class="burger">
+                                                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-close" data-v-649bbaab="">
+                                                    <line x1="13.788" y1="1.28816" x2="1.06011" y2="14.0161" stroke="currentColor" stroke-width="1.2"></line>
+                                                    <line x1="1.06049" y1="1.43963" x2="13.7884" y2="14.1675" stroke="currentColor" stroke-width="1.2"></line>
+                                                </svg>
+                                                <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-burger" data-v-649bbaab="">
+                                                    <line x1="18" y1="0.6" y2="0.6" stroke="currentColor" stroke-width="1.2" data-v-649bbaab=""></line>
+                                                    <line x1="18" y1="5.7167" y2="5.7167" stroke="currentColor" stroke-width="1.2" data-v-649bbaab=""></line>
+                                                    <line x1="18" y1="10.8334" y2="10.8334" stroke="currentColor" stroke-width="1.2" data-v-649bbaab=""></line>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rts-fs-menu">
+                                    <div class="rts-fs-container row">
+                                        <div class="rts-fs--nav col-12 col-md-6">
+                                            <ul id="primary-menu" class="navbar-nav-button">
+                                                <li class="menu-item"><a href="playbook_mpr_landing.html">Home</a></li>
+                                                <li class="menu-item"><a href="#about">About</a></li>
+                                                <li class="menu-item"><a href="#services">Services</a></li>
+                                                <li class="menu-item"><a href="#contact">Contact</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="rts-fs--contacts col-12 col-md-6">
+                                            <div class="contact-inner">
+                                                <div class="contact-information">
+                                                    <h2 class="heading-title">Our Office</h2>
+                                                    <div class="address">
+                                                        <ul>
+                                                            <li>
+                                                                <p>26 Northwood Way, Upper Norwood, London SE19 1ET</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="contact-information">
+                                                    <h2 class="heading-title">Get In Touch</h2>
+                                                    <div class="contact">
+                                                        <ul>
+                                                            <li><a href="mailto:contact@playbookmpr.com" class="mail">contact@playbookmpr.com</a></li>
+                                                            <li><a href="tel:+447729740898" class="number">+44 7729 740898</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="rts-social-area-one">
+                                                        <ul>
+                                                            <li><a href="https://www.linkedin.com/company/playbook-mpr" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="entry.REPLACE_WITH_EMAIL_FIELD_ID" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="entry.REPLACE_WITH_PHONE_FIELD_ID">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interest</label>
-                            <select id="service" name="entry.REPLACE_WITH_SERVICE_FIELD_ID">
-                                <option value="">Select a service</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Hosting & Maintenance">Hosting & Maintenance</option>
-                                <option value="AI Voice Agents">AI Voice Agents</option>
-                                <option value="AI Newsletters">AI Newsletters</option>
-                                <option value="Social Media Automation">Social Media Automation</option>
-                                <option value="Media Content Editing">Media Content Editing</option>
-                                <option value="Personal Chatbots">Personal Chatbots</option>
-                                <option value="Brand Identity">Brand Identity</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="entry.REPLACE_WITH_MESSAGE_FIELD_ID" required placeholder="Tell us about your project and requirements..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn" id="submitBtn">
-                            <span class="btn-text">Book Free Consultation</span>
-                            <span class="loading">Sending...</span>
-                        </button>
-                        <div class="success-message" id="successMessage">Message sent successfully! ✓</div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
+    <!-- header area end -->
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <img src="images/white logo.png" alt="Playbook MPR Logo" class="footer-logo">
-            <p>&copy; 2024 Playbook MPR. All rights reserved.</p>
-            <p>Where Tech Meets Creativity</p>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- rts banenr area start -->
+            <div class="banner-area banner-style-one banner-bg-1 hero__area-3 banner__jump">
+                <div class="shape-image">
+                    <img src="assets/images/banner/06.png" alt="banner">
+                </div>
+                <div class="container">
+                    <div class="row  ptb--200 ptb_sm--150">
+                        <div class="col-lg-9">
+                            <div class="banner-one-wrapper mt--80 mt_sm--0">
+                                <h1 class="title rts_hero__title">
+                                    Where Tech Meets <br>
+                                    <span class="border-bottom-1">Creativity</span>
+                                </h1>
+                                <div class="para-wraph">
+                                    <p class="disc hero__sub-title">
+                                        AI-Powered Business Solutions to Strengthen Customer Relationships & Prevent <br> Revenue Loss
+                                    </p>
+                                </div>
+                                <div class="bannerJump_animation banner-jump-button rts-scroll-down-circle-wrapper-4">
+                                    <div class="jump__anim rts_round_btn_wrap scroll-down-circle-4">
+                                        <div class="rts-mouse-move-button">
+                                            <div class="btn_wrapper">
+                                                <a href="#contact" class="rts-btn-mouse-move btn-hover btn-item"><span></span> Book Free <br>
+                                                    Consultation
+                                                    <i class="fa-solid fa-arrow-up-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- rts banenr area end -->
+
+            <!-- rts about area start -->
+            <div class="rts-about-area-1 rts-section-gapBottom" id="about">
+                <div class="shape-about-one">
+                    <img src="assets/images/about/05.png" alt="about">
+                </div>
+                <div class="container-full">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="grid-lines-wrapper">
+                                <div class="grid-lines">
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-split-wrap-about scrolltext-wrapper">
+                        <div class="text-split scrollingText-two">
+                            <h2 class="title">
+                                About Playbook MPR <span>AI-Powered Solutions</span>
+                                About Playbook MPR <span>AI-Powered Solutions</span>
+                                About Playbook MPR <span>AI-Powered Solutions</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- about main inner wrapper -->
+                <div class="container mt--100">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="left-main-about-inner">
+                                <img src="images/white logo.png" alt="Playbook MPR" style="max-width: 100%; height: auto;">
+                                <div class="shape-about-two">
+                                    <img src="assets/images/about/06.png" alt="about">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 pl--60 pl_sm--15 pt_md--50 pt_sm--30">
+                            <!-- about right area start -->
+                            <div class="about-area-right-start">
+                                <div class="inner-about-wrapper">
+                                    <h2 class="title quote">Innovative Solutions
+                                        for Your Business</h2>
+                                    <p class="disc rts-text-anim">
+                                        We specialize in building and producing creative AI-powered automated solutions for businesses to help retain and strengthen customer and client relationships while preventing loss of potential revenue. <br><br>
+                                        Our team combines cutting-edge technology with creative innovation to deliver comprehensive digital solutions that drive business growth and enhance customer engagement.
+                                    </p>
+                                    <div class="btn--area-left mt--50">
+                                        <a href="#contact" class="learn-more-btn">Get Started<i
+                                                class="fa-solid fa-arrow-up-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- about right area end -->
+                        </div>
+                    </div>
+                </div>
+                <!-- about main inner wrapper main -->
+            </div>
+            <!-- rts about area end -->
+
+            <!-- rts service style one area start -->
+            <div class="rts-section-gap rts-service-area" id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="title-area">
+                                <span class="sub-title">Our SERVICES</span>
+                            </div>
+                            <div class="title-top-service-varticle">
+                                <h2 class="title">Full-Service <br>
+                                    Digital Agency</h2>
+                                <p class="dsic">
+                                    We provide comprehensive AI-powered solutions to help your business thrive. <br> From website development to automated customer engagement, we've got you covered.
+                                </p>
+                                <a href="#contact" class="learn-more-btn">Get In Touch<i
+                                        class="fa-solid fa-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="service-area-one-main-wrapper">
+
+                                <div class="single-item-service-one">
+                                    <a href="#contact">
+                                        <div class="rts-img-contaciner">
+                                            <figure class="list-img">
+                                                <img class="list-img" src="assets/images/product/15.jpg" alt="Website Development">
+                                            </figure>
+                                        </div>
+                                        <div class="list-title col-md-6">
+                                            <h3>Website Development</h3>
+                                            <span class="price-tag">From £500</span>
+                                        </div>
+                                        <div class="list-info col-md-3">
+                                            <p class="disc">
+                                                Custom websites that convert visitors into customers. Professional, responsive designs optimized for performance and user experience.
+                                            </p>
+                                        </div>
+                                        <div class="button-area">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
+                                                <g>
+                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="single-item-service-one">
+                                    <a href="#contact">
+                                        <div class="rts-img-contaciner">
+                                            <figure class="list-img">
+                                                <img class="list-img" src="assets/images/product/60.jpg" alt="Hosting & Maintenance">
+                                            </figure>
+                                        </div>
+                                        <div class="list-title col-md-6">
+                                            <h3>Hosting & Maintenance</h3>
+                                            <span class="price-tag">£49/month</span>
+                                        </div>
+                                        <div class="list-info col-md-3">
+                                            <p class="disc">
+                                                Reliable hosting with 24/7 monitoring, regular updates, security patches, and performance optimization to keep your website running smoothly.
+                                            </p>
+                                        </div>
+                                        <div class="button-area">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
+                                                <g>
+                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="single-item-service-one">
+                                    <a href="#contact">
+                                        <div class="rts-img-contaciner">
+                                            <figure class="list-img">
+                                                <img class="list-img" src="assets/images/product/61.jpg" alt="AI Voice Agents">
+                                            </figure>
+                                        </div>
+                                        <div class="list-title col-md-6">
+                                            <h3>AI Voice Agents</h3>
+                                            <span class="price-tag">Bespoke Pricing</span>
+                                        </div>
+                                        <div class="list-info col-md-3">
+                                            <p class="disc">
+                                                Intelligent voice agents for handling out-of-hours calls, providing 24/7 customer support and lead qualification without human intervention.
+                                            </p>
+                                        </div>
+                                        <div class="button-area">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
+                                                <g>
+                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="single-item-service-one">
+                                    <a href="#contact">
+                                        <div class="rts-img-contaciner">
+                                            <figure class="list-img">
+                                                <img class="list-img" src="assets/images/product/62.jpg" alt="AI Newsletters">
+                                            </figure>
+                                        </div>
+                                        <div class="list-title col-md-6">
+                                            <h3>AI Newsletters</h3>
+                                            <span class="price-tag">£55/month</span>
+                                        </div>
+                                        <div class="list-info col-md-3">
+                                            <p class="disc">
+                                                Automated newsletter systems that nurture past customers and upsell opportunities with personalized, engaging content.
+                                            </p>
+                                        </div>
+                                        <div class="button-area">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
+                                                <g>
+                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="single-item-service-one">
+                                    <a href="#contact">
+                                        <div class="rts-img-contaciner">
+                                            <figure class="list-img">
+                                                <img class="list-img" src="assets/images/product/63.jpg" alt="Social Media Automation">
+                                            </figure>
+                                        </div>
+                                        <div class="list-title col-md-6">
+                                            <h3>Social Media Automation</h3>
+                                            <span class="price-tag">Bespoke Pricing</span>
+                                        </div>
+                                        <div class="list-info col-md-3">
+                                            <p class="disc">
+                                                Automated social media posting agents that maintain consistent brand presence across all platforms with engaging, relevant content.
+                                            </p>
+                                        </div>
+                                        <div class="button-area">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
+                                                <g>
+                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="single-item-service-one">
+                                    <a href="#contact">
+                                        <div class="rts-img-contaciner">
+                                            <figure class="list-img">
+                                                <img class="list-img" src="assets/images/product/15.jpg" alt="Media Content Editing">
+                                            </figure>
+                                        </div>
+                                        <div class="list-title col-md-6">
+                                            <h3>Media Content Editing</h3>
+                                            <span class="price-tag">Bespoke Pricing</span>
+                                        </div>
+                                        <div class="list-info col-md-3">
+                                            <p class="disc">
+                                                Professional editing services for photos, videos, and graphics to enhance your brand's visual appeal and marketing materials.
+                                            </p>
+                                        </div>
+                                        <div class="button-area">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
+                                                <g>
+                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="single-item-service-one">
+                                    <a href="#contact">
+                                        <div class="rts-img-contaciner">
+                                            <figure class="list-img">
+                                                <img class="list-img" src="assets/images/product/60.jpg" alt="Personal Chatbots">
+                                            </figure>
+                                        </div>
+                                        <div class="list-title col-md-6">
+                                            <h3>Personal Chatbots</h3>
+                                            <span class="price-tag">Bespoke Pricing</span>
+                                        </div>
+                                        <div class="list-info col-md-3">
+                                            <p class="disc">
+                                                Custom chatbots for out-of-hours personal assistance, lead generation, and customer support with natural conversation flow.
+                                            </p>
+                                        </div>
+                                        <div class="button-area">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
+                                                <g>
+                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="single-item-service-one">
+                                    <a href="#contact">
+                                        <div class="rts-img-contaciner">
+                                            <figure class="list-img">
+                                                <img class="list-img" src="assets/images/product/61.jpg" alt="Brand Identity">
+                                            </figure>
+                                        </div>
+                                        <div class="list-title col-md-6">
+                                            <h3>Brand Identity</h3>
+                                            <span class="price-tag">From £45</span>
+                                        </div>
+                                        <div class="list-info col-md-3">
+                                            <p class="disc">
+                                                Complete branding solutions including logo design (£45), banners (£30), watermarks (£30), and complete brand kits (£100).
+                                            </p>
+                                        </div>
+                                        <div class="button-area">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
+                                                <g>
+                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- rts service style one area end -->
+
+            <!-- contact area start -->
+            <div class="appoinmnet-area-two rts-section-gap bg-dark-1" id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="appoinment-area-two plr--120 plr_md--40 plr_sm--30">
+                                <div class="title-area-appoinment">
+                                    <span class="pre">Get In Touch</span>
+                                    <h2 class="title mb--0">
+                                        Love to hear from you <br>
+                                        <span>Book Free Consultation!</span>
+                                    </h2>
+                                </div>
+                                <div class="row mt--50">
+                                    <div class="col-lg-5">
+                                        <div class="contact-info-wrapper">
+                                            <h3 class="title mb--30">Contact Information</h3>
+                                            <div class="single-con-info mb--30">
+                                                <a href="mailto:contact@playbookmpr.com">
+                                                    <i class="fa-regular fa-envelope"></i> contact@playbookmpr.com
+                                                </a>
+                                            </div>
+                                            <div class="single-con-info mb--30">
+                                                <a href="tel:+447729740898">
+                                                    <i class="fa-light fa-phone"></i> +44 7729 740898
+                                                </a>
+                                            </div>
+                                            <div class="single-con-info mb--30">
+                                                <a href="#">
+                                                    <i class="fa-light fa-location-dot"></i> 26 Northwood Way, Upper Norwood, London SE19 1ET
+                                                </a>
+                                            </div>
+                                            <div class="single-con-info">
+                                                <a href="https://www.linkedin.com/company/playbook-mpr" target="_blank">
+                                                    <i class="fa-brands fa-linkedin-in"></i> LinkedIn: Playbook MPR
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <form class="appoinment-h2 rts-slide-up-gsap" id="contactForm" action="https://docs.google.com/forms/d/YOUR_FORM_ID/formResponse" method="POST" target="hidden_iframe">
+                                            <div class="input-line">
+                                                <div class="input-half">
+                                                    <label for="name">Full Name *</label>
+                                                    <input id="name" type="text" name="entry.REPLACE_WITH_NAME_FIELD_ID" placeholder="Your Name" required>
+                                                </div>
+                                                <div class="input-half">
+                                                    <label for="email">Your Email *</label>
+                                                    <input id="email" type="email" name="entry.REPLACE_WITH_EMAIL_FIELD_ID" placeholder="your@email.com" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-line mt--40">
+                                                <div class="input-half">
+                                                    <label for="phone">Phone Number</label>
+                                                    <input id="phone" type="tel" name="entry.REPLACE_WITH_PHONE_FIELD_ID" placeholder="+44 7XXX XXX XXX">
+                                                </div>
+                                                <div class="input-half">
+                                                    <label for="service">Service Interest</label>
+                                                    <select id="service" name="entry.REPLACE_WITH_SERVICE_FIELD_ID" class="form-select">
+                                                        <option value="">Select a service</option>
+                                                        <option value="Website Development">Website Development</option>
+                                                        <option value="Hosting & Maintenance">Hosting & Maintenance</option>
+                                                        <option value="AI Voice Agents">AI Voice Agents</option>
+                                                        <option value="AI Newsletters">AI Newsletters</option>
+                                                        <option value="Social Media Automation">Social Media Automation</option>
+                                                        <option value="Media Content Editing">Media Content Editing</option>
+                                                        <option value="Personal Chatbots">Personal Chatbots</option>
+                                                        <option value="Brand Identity">Brand Identity</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="text-area mt--40">
+                                                <label for="message">Message *</label>
+                                                <textarea id="message" name="entry.REPLACE_WITH_MESSAGE_FIELD_ID" cols="30" rows="10" placeholder="Tell us about your project and requirements..." required></textarea>
+                                            </div>
+                                            <button type="submit" class="submit-pd" id="submitBtn">
+                                                <span class="btn-text">Book Free Consultation</span>
+                                                <span class="loading" style="display: none;">Sending...</span>
+                                            </button>
+                                            <div class="success-message" id="successMessage" style="display: none; color: #27ae60; margin-top: 1rem; font-weight: 600;">
+                                                Message sent successfully! ✓
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- contact area end -->
+
+            <!-- rts-footer-area one -->
+            <div class="rts-footer-area-one rts-section-gapTop">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="grid-lines-wrapper">
+                                <div class="grid-lines">
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rts-section-gapBottom">
+                        <div class="col-lg-12">
+                            <div class="footer-main-wrapper-one">
+                                <!-- footer left area start -->
+                                <div class="footer-left-area">
+                                    <a href="playbook_mpr_landing.html" class="logo-footer">
+                                        <img src="images/white logo.png" alt="Playbook MPR Logo" style="max-height: 60px; filter: brightness(0) invert(1);">
+                                    </a>
+                                    <p class="disc">
+                                        Where Tech Meets Creativity <br>
+                                        AI-Powered Business Solutions
+                                    </p>
+                                    <div class="rts-social-area-one">
+                                        <ul>
+                                            <li><a href="https://www.linkedin.com/company/playbook-mpr" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- footer left area end -->
+                                <!-- footer single wized start -->
+                                <div class="footer-single-wized-start">
+                                    <h5 class="title">Useful Links</h5>
+                                    <ul class="footer-nav">
+                                        <li><a href="#about">About Us</a></li>
+                                        <li><a href="#services">Our Services</a></li>
+                                        <li><a href="#contact">Contact Us</a></li>
+                                        <li><a href="privacy.html">Privacy Policy</a></li>
+                                        <li><a href="terms.html">Terms of Service</a></li>
+                                    </ul>
+                                </div>
+                                <!-- footer single wized end -->
+                                <!-- footer single wized start -->
+                                <div class="footer-single-wized-start">
+                                    <h5 class="title">Contact Info</h5>
+                                    <div class="mail-contact-area">
+                                        <div class="single-con-info mb--40">
+                                            <a href="#">
+                                                26 Northwood Way, Upper Norwood <br> London SE19 1ET, UK
+                                            </a>
+                                        </div>
+                                        <div class="single-con-info mail">
+                                            <a href="mailto:contact@playbookmpr.com">
+                                                contact@playbookmpr.com
+                                            </a>
+                                        </div>
+                                        <div class="single-con-info">
+                                            <a href="tel:+447729740898">
+                                                +44 7729 740898
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- footer single wized end -->
+                                <!-- footer single wized start -->
+                                <div class="footer-single-wized-start">
+                                    <h5 class="title">Subscribe Us</h5>
+                                    <div class="subscribtion-area">
+                                        <p class="disc">
+                                            Subscribe our newsletter for future updates. <br> don't worry we don't spam
+                                            your email address
+                                        </p>
+                                        <form action="#" class="subscribtion-input">
+                                            <input id="email-footer" type="email" placeholder="Enter your email..." required>
+                                            <label for="email-footer"><i class="fa-regular fa-envelope"></i></label>
+                                            <button type="submit" class="rts-btn btn-dark">subscribe</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- footer single wized end -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="copyright-area text-center">
+                                <div class="left">
+                                    <p>2024 © <a href="playbook_mpr_landing.html">Playbook MPR</a>. All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- rts-footer-area one end -->
         </div>
-    </footer>
+    </div>
 
     <!-- Hidden iframe for form submission -->
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
+    <!-- Scripts style two -->
+    <div class="loading-screen" id="loading-screen">
+        <span class="bar top-bar"></span>
+        <span class="bar down-bar"></span>
+        <span class="progress-line"></span>
+        <span class="loading-counter"> </span>
+    </div>
+
+    <div class="bg-noise"></div>
+
+    <!-- back to top start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!-- back to top end -->
+
+    <!-- pre loader start -->
+    <div class="rts-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="no">
+        <span class="fn-cursor"></span>
+    </div>
+    <div class="rts-cursor cursor-inner" data-default="yes" data-link="yes" data-slider="no">
+        <span class="fn-cursor">
+        <span class="fn-left"></span>
+        <span class="fn-right"></span>
+        </span>
+    </div>
+    <!-- pre loader end -->
+
+    <!-- dark light switcher start-->
+    <div class="modal-sidebar-scroll rts-dark-light">
+        <ul>
+            <li class="go-dark-w"><span>Dark</span><i class="rts-go-dark fal fa-moon"></i></li>
+            <li class="go-light-w"><span>Light</span><i class="rts-go-light fa-light fa-brightness"></i></li>
+        </ul>
+    </div>
+    <!-- dark light switcher end -->
+
+    <script defer src="assets/js/vendor/jquery.min.js"></script>
+    <script defer src="assets/js/plugins/bootstrap.min.js"></script>
+    <script defer src="assets/js/plugins/contact.form.js"></script>
+    <script defer src="assets/js/vendor/waypoint.js"></script>
+    <script defer src="assets/js/plugins/swiper.js"></script>
+
+    <!-- for side bar sticky -->
+    <script defer src="assets/js/plugins/resizer-sensor.js"></script>
+    <script defer src="assets/js/plugins/sticky-sidebar.js"></script>
+    <!-- for side bar sticky end-->
+
+    <script defer src="assets/js/plugins/isotop.js"></script>
+    <script defer src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+
+    <script defer src="assets/js/plugins/smoothscroll-varticle.js"></script>
+    <script defer src="assets/js/vendor/gsap.js"></script>
+    <script defer src="assets/js/plugins/scrolltiger.js"></script>
+    <script defer src="assets/js/plugins/scrolltoplugin.js"></script>
+    <script defer src="assets/js/plugins/splittext.js"></script>
+    <script defer src="assets/js/plugins/smoothscroll.js"></script>
+
+    <!-- title opacity scroll magix -->
+    <script defer src="assets/js/plugins/scrollmagic.js"></script>
+    <script defer src="assets/js/plugins/animate-scrollmagic.js"></script>
+    <!-- title opacity scroll magic end -->
+
+    <script defer src="assets/js/plugins/tilt.js"></script>
+    <script defer src="assets/js/plugins/counterup.js"></script>
+
+    <script defer src="assets/js/vendor/waw.js"></script>
+    <!-- custom javascripts -->
+    <script defer src="assets/js/main.js"></script>
+
+    <!-- Form submission handling -->
     <script>
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const btnText = submitBtn.querySelector('.btn-text');
-            const loading = submitBtn.querySelector('.loading');
-            const successMessage = document.getElementById('successMessage');
-            
-            // Show loading state
-            submitBtn.disabled = true;
-            btnText.style.display = 'none';
-            loading.classList.add('show');
-            
-            // Simulate form submission (replace with actual Google Forms integration)
-            setTimeout(() => {
-                // Hide loading state
-                loading.classList.remove('show');
-                btnText.style.display = 'inline';
-                submitBtn.disabled = false;
-                
-                // Show success message
-                successMessage.classList.add('show');
-                
-                // Reset form
-                document.getElementById('contactForm').reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-            }, 2000);
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = document.getElementById('submitBtn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const loading = submitBtn.querySelector('.loading');
+                    const successMessage = document.getElementById('successMessage');
+                    
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    if (btnText) btnText.style.display = 'none';
+                    if (loading) loading.style.display = 'inline';
+                    
+                    // Simulate form submission (replace with actual Google Forms integration)
+                    setTimeout(() => {
+                        // Hide loading state
+                        if (loading) loading.style.display = 'none';
+                        if (btnText) btnText.style.display = 'inline';
+                        submitBtn.disabled = false;
+                        
+                        // Show success message
+                        if (successMessage) {
+                            successMessage.style.display = 'block';
+                        }
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            if (successMessage) {
+                                successMessage.style.display = 'none';
+                            }
+                        }, 5000);
+                    }, 2000);
+                });
+            }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href !== '#!') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
             });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe service cards
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
         });
     </script>
+    <!-- Scripts style two End -->
+
 </body>
+
 </html>
