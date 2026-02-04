@@ -347,3 +347,88 @@ Branding that screams "you" before anyone reads a word. Logos, banners, complete
 
 ### Result:
 Copy now reads like a real person wrote it—confident, direct, specific, and human. No AI markers detected.
+
+---
+
+## ADDITIONAL REVISIONS (Round 2)
+
+### 5. Services Header - Final Update
+
+**BEFORE:**
+```
+Stuff That Actually Works
+```
+
+**AFTER:**
+```
+Stuff That Makes Sense
+```
+
+**Changes:**
+- "Actually Works" → "Makes Sense" (less promise-heavy, more honest)
+- Removed potential overpromise language
+
+---
+
+### 6. Em Dash Removal
+
+**AI Marker:** Em dashes (—) are a common AI writing pattern, especially in marketing copy.
+
+**Removed from:**
+- Website Development: "every path to purchase—engineered" → "every path to purchase. Engineered"
+- Hosting & Maintenance: "doesn't just sit there—it gets smarter" → "doesn't just sit there. It gets smarter"
+- Social Media Automation: "don't just schedule—they adapt" → "don't just schedule. They adapt"
+- Media Content Editing: "Photos, videos, graphics—everything" → "Photos, videos, graphics. Everything"
+- Brand Identity: "complete brand kits—we build" → "complete brand kits. We build"
+
+**Changes:**
+- Replaced all em dashes with periods
+- Creates shorter, punchier sentences
+- More conversational rhythm
+- Removes AI punctuation pattern
+
+---
+
+### 7. Scrolling Text Update
+
+**BEFORE:**
+```
+About Playbook MPR <span>AI-Powered Solutions</span>
+```
+
+**AFTER:**
+```
+About Playbook MPR <span>Creative AI</span>
+```
+
+**Changes:**
+- "AI-Powered Solutions" → "Creative AI" (shorter, less corporate)
+- Removed "Solutions" (overused abstract term)
+- More direct, less buzzword-heavy
+
+---
+
+### 8. Contact Section (User Edits - Noted)
+
+User made additional humanizing edits:
+- "Love to hear from you" → "Let's talk" (more direct, conversational)
+- "Contact Information" → "How to reach us" (less formal)
+- "Tell us about your project and requirements..." → "What do you need?" (conversational, direct)
+- "Subscribe our newsletter for future updates. don't worry we don't spam your email address" → "Get updates when we build something new. No spam. Promise." (conversational, honest)
+
+These edits further remove corporate formality and add human voice.
+
+---
+
+## FINAL SUMMARY
+
+### All AI Markers Removed:
+1. ✅ Em dashes (—) - all replaced with periods
+2. ✅ "Solutions" overuse - replaced with concrete terms
+3. ✅ Corporate jargon - replaced with conversational language
+4. ✅ Overpromising language - toned down ("Actually Works" → "Makes Sense")
+5. ✅ Formal contact language - made conversational
+6. ✅ Buzzword phrases - simplified
+
+### Final Result:
+Copy is now fully humanized—no AI markers remain. Direct, conversational, specific, and honest.
