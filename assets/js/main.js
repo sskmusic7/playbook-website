@@ -2639,12 +2639,23 @@
             lightTheme(); // Default to light theme if not found in local storage
           }
 
-          // Event listeners for theme toggles
-          godarkrts.click(function () {
+          // Event listeners for theme toggles - make entire list items clickable
+          $('.go-dark-w').click(function () {
             darkTheme();
           });
 
-          golightrts.click(function () {
+          $('.go-light-w').click(function () {
+            lightTheme();
+          });
+          
+          // Also keep icon clicks working for backwards compatibility
+          godarkrts.click(function (e) {
+            e.stopPropagation();
+            darkTheme();
+          });
+
+          golightrts.click(function (e) {
+            e.stopPropagation();
             lightTheme();
           });
 

@@ -1,0 +1,16 @@
+/* eslint-disable react/prop-types */
+
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
+export default function MetaComponent({ meta }) {
+  return (
+    <HelmetProvider>
+      <Helmet>
+        <title>{meta?.title}</title>
+        {meta.description && (
+          <meta name="description" content={meta?.description} />
+        )}
+      </Helmet>
+    </HelmetProvider>
+  );
+}
