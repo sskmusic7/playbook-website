@@ -753,7 +753,7 @@
 	// === YouTube Channel Videos Playlist
 	if ( $('#ycp').length ) {
 		$("#ycp").ycp({
-			apikey: 'AIzaSyBS5J1A7o-M8X78JuiqF5h103XLmSQiReE',
+			apikey: '',
 			playlist: 6,
 			autoplay: true,
 			related: true
