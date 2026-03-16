@@ -1,12 +1,14 @@
 [build]
-  publish = "."
+  command = "cd themeforest-RhEL7U0L-xhibiter-nft-marketplace-reactjs-template/xhibiter && npm install && npm run build"
+  publish = "themeforest-RhEL7U0L-xhibiter-nft-marketplace-reactjs-template/xhibiter/dist"
 
+# Optional: Add consultation form as a page in the React app
 [[redirects]]
-  from = "/"
+  from = "/consultation"
   to = "/playbook_mpr_landing.html"
   status = 200
 
 [[redirects]]
   from = "/index.html"
-  to = "/playbook_mpr_landing.html"
-  status = 301 
+  to = "/"
+  status = 301
