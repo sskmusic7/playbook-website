@@ -24,7 +24,6 @@
 
         /* Hover Capture Form Modal */
         .capture-overlay {
-            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -32,14 +31,16 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.75);
             z-index: 99999;
+            display: flex;
             justify-content: center;
             align-items: center;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
         .capture-overlay.active {
-            display: flex;
             opacity: 1;
+            visibility: visible;
         }
         .capture-modal {
             background: #1F1F25;
@@ -1015,8 +1016,16 @@
             }
         });
 
-        // Fallback: show after 45 seconds idle on page
-        setTimeout(function() { showCapture(); }, 45000);
+        // Scroll trigger: show after scrolling 50% down the page
+        window.addEventListener('scroll', function() {
+            var scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+            if (scrollPercent > 0.5) {
+                showCapture();
+            }
+        });
+
+        // Fallback: show after 30 seconds on page
+        setTimeout(function() { showCapture(); }, 30000);
 
         // Close handlers
         document.getElementById('captureClose').addEventListener('click', function() {
