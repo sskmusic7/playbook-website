@@ -21,6 +21,170 @@
             font-weight: 600;
             margin-top: 0.5rem;
         }
+
+        /* Hover Capture Form Modal */
+        .capture-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .capture-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .capture-modal {
+            background: #1F1F25;
+            border-radius: 16px;
+            padding: 48px 40px;
+            max-width: 520px;
+            width: 90%;
+            position: relative;
+            border: 1px solid rgba(254, 202, 87, 0.2);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            animation: captureSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes captureSlideIn {
+            from { transform: translateY(30px) scale(0.95); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        .capture-modal .capture-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #74787C;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-family: var(--font-primary);
+        }
+        .capture-modal .capture-close:hover {
+            color: #feca57;
+        }
+        .capture-modal .capture-badge {
+            display: inline-block;
+            background: rgba(254, 202, 87, 0.15);
+            color: #feca57;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            font-family: var(--font-primary);
+        }
+        .capture-modal h3 {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font-family: var(--font-primary);
+        }
+        .capture-modal .capture-sub {
+            color: #74787C;
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+            line-height: 1.6;
+            font-family: var(--font-primary);
+        }
+        .capture-modal .capture-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: #141414;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+            font-family: var(--font-primary);
+        }
+        .capture-modal .capture-input::placeholder {
+            color: #74787C;
+        }
+        .capture-modal .capture-input:focus {
+            border-color: #feca57;
+        }
+        .capture-modal .capture-btn {
+            width: 100%;
+            padding: 16px;
+            background: #feca57;
+            color: #141414;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 4px;
+            font-family: var(--font-primary);
+            letter-spacing: 0.3px;
+        }
+        .capture-modal .capture-btn:hover {
+            background: #ffe082;
+            transform: translateY(-2px);
+        }
+        .capture-modal .capture-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .capture-modal .capture-privacy {
+            color: #74787C;
+            font-size: 0.75rem;
+            text-align: center;
+            margin-top: 14px;
+            font-family: var(--font-primary);
+        }
+        .capture-modal .capture-success {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .capture-modal .capture-success .check-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(254, 202, 87, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 28px;
+        }
+        .capture-modal .capture-success h4 {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: var(--font-primary);
+        }
+        .capture-modal .capture-success p {
+            color: #74787C;
+            font-size: 0.9rem;
+            font-family: var(--font-primary);
+        }
+        @media (max-width: 576px) {
+            .capture-modal {
+                padding: 32px 24px;
+            }
+            .capture-modal h3 {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 
@@ -808,6 +972,101 @@
         });
     </script>
     <!-- Scripts style two End -->
+
+    <!-- Hover Capture Form Modal -->
+    <div class="capture-overlay" id="captureOverlay">
+        <div class="capture-modal">
+            <button class="capture-close" id="captureClose">&times;</button>
+            <div id="captureFormWrap">
+                <span class="capture-badge">Free Consultation</span>
+                <h3>Before you go &mdash; let's talk.</h3>
+                <p class="capture-sub">Drop your details and we'll reach out with ideas tailored to your business. No spam. No fluff. Just Alien Brains.</p>
+                <form id="captureForm">
+                    <input class="capture-input" type="text" id="captureName" placeholder="Your name" required>
+                    <input class="capture-input" type="email" id="captureEmail" placeholder="Email address" required>
+                    <input class="capture-input" type="tel" id="capturePhone" placeholder="Phone (optional)">
+                    <button class="capture-btn" type="submit" id="captureSendBtn">Book Free Consultation</button>
+                </form>
+                <p class="capture-privacy">We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+            <div class="capture-success" id="captureSuccess">
+                <div class="check-icon">&#10003;</div>
+                <h4>You're in.</h4>
+                <p>We'll be in touch within 24 hours.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var shown = false;
+        var dismissed = sessionStorage.getItem('captureFormDismissed');
+
+        function showCapture() {
+            if (shown || dismissed) return;
+            shown = true;
+            document.getElementById('captureOverlay').classList.add('active');
+        }
+
+        // Exit-intent: mouse leaves top of viewport
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 5 && e.relatedTarget == null) {
+                showCapture();
+            }
+        });
+
+        // Fallback: show after 45 seconds idle on page
+        setTimeout(function() { showCapture(); }, 45000);
+
+        // Close handlers
+        document.getElementById('captureClose').addEventListener('click', function() {
+            document.getElementById('captureOverlay').classList.remove('active');
+            sessionStorage.setItem('captureFormDismissed', '1');
+        });
+        document.getElementById('captureOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                sessionStorage.setItem('captureFormDismissed', '1');
+            }
+        });
+
+        // Form submit
+        document.getElementById('captureForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = document.getElementById('captureSendBtn');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            // Populate the main contact form fields and submit via hidden iframe
+            var name = document.getElementById('captureName').value;
+            var email = document.getElementById('captureEmail').value;
+            var phone = document.getElementById('capturePhone').value;
+
+            // Fill main form and trigger its submission to Google Forms
+            var mainName = document.getElementById('name');
+            var mainEmail = document.getElementById('email');
+            var mainPhone = document.getElementById('phone');
+            var mainMessage = document.getElementById('message');
+            if (mainName) mainName.value = name;
+            if (mainEmail) mainEmail.value = email;
+            if (mainPhone) mainPhone.value = phone;
+            if (mainMessage) mainMessage.value = 'Lead from hover capture form';
+
+            var mainForm = document.getElementById('contactForm');
+            if (mainForm) mainForm.submit();
+
+            // Show success state
+            setTimeout(function() {
+                document.getElementById('captureFormWrap').style.display = 'none';
+                document.getElementById('captureSuccess').style.display = 'block';
+                setTimeout(function() {
+                    document.getElementById('captureOverlay').classList.remove('active');
+                    sessionStorage.setItem('captureFormDismissed', '1');
+                }, 3000);
+            }, 1000);
+        });
+    })();
+    </script>
 
 </body>
 
