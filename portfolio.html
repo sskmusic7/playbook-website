@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-style-mode" content="1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/white logo.png">
+    <title>Portfolio - Playbook MPR</title>
+    <meta name="description" content="Selected sites, apps and automations built and shipped by Playbook MPR. Salons, hospitality, and AI products, live and in production.">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
+    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .portfolio-hero {
+            padding: 160px 0 60px;
+        }
+        .portfolio-toggle {
+            display: inline-flex;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50px;
+            padding: 4px;
+            margin-top: 24px;
+        }
+        .portfolio-toggle button {
+            font-family: var(--font-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--color-body);
+            background: transparent;
+            border: none;
+            padding: 10px 26px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .portfolio-toggle button.active {
+            background: #feca57;
+            color: #141414;
+        }
+        .portfolio-view {
+            display: none;
+        }
+        .portfolio-view.active {
+            display: block;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        @media (max-width: 991px) {
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+        .portfolio-card {
+            position: relative;
+            display: block;
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background: #1F1F25;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .portfolio-card.featured {
+            grid-column: span 2;
+            aspect-ratio: 16 / 9;
+        }
+        @media (max-width: 640px) {
+            .portfolio-card.featured { grid-column: span 1; }
+        }
+        .portfolio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+        .portfolio-card:hover img {
+            transform: scale(1.06);
+        }
+        .portfolio-card .featured-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #feca57;
+            color: #141414;
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+            z-index: 2;
+        }
+        .portfolio-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20,20,20,0) 40%, rgba(20,20,20,0.95) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 22px;
+            opacity: 0.92;
+            transition: opacity 0.3s ease;
+        }
+        .portfolio-card:hover .overlay {
+            opacity: 1;
+        }
+        .portfolio-card h3 {
+            color: #fff;
+            font-family: var(--font-primary);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 0 0 6px;
+        }
+        .portfolio-card p {
+            color: #C9C9CE;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin: 0 0 10px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.35s ease, opacity 0.35s ease;
+        }
+        .portfolio-card:hover p {
+            max-height: 100px;
+            opacity: 1;
+        }
+        .portfolio-card .visit-link {
+            color: #feca57;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .portfolio-carousel-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px;
+            scrollbar-width: thin;
+        }
+        .portfolio-carousel-track .portfolio-card {
+            flex: 0 0 340px;
+            aspect-ratio: 4/3;
+            scroll-snap-align: start;
+        }
+        .carousel-nav {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .carousel-nav button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .carousel-nav button:hover {
+            background: #feca57;
+            color: #141414;
+            border-color: #feca57;
+        }
+        .portfolio-cta {
+            background: #1F1F25;
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .portfolio-cta h3 {
+            color: #fff;
+            font-family: var(--font-primary);
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .portfolio-cta p {
+            color: var(--color-body);
+            margin-bottom: 28px;
+        }
+        .section-label {
+            color: #feca57;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header-area header-one header--sticky">
+        <div class="header-container-one">
+            <div class="header-wrapper">
+                <a href="playbook_mpr_landing.html" class="logo">
+                    <img src="images/white logo 2.png" alt="Playbook MPR Logo" style="max-height: 120px; height: auto; width: auto;">
+                </a>
+                <div class="header-right">
+
+                    <nav class="nav-area drop-down-rts">
+                        <ul class="navbar-nav-1">
+                            <li class="menu-item main-nav-on">
+                                <a class="menu-link" href="playbook_mpr_landing.html"><span class="rolling-text">Home</span></a>
+                            </li>
+                            <li class="menu-item main-nav-on">
+                                <a class="menu-link" href="playbook_mpr_landing.html#about"><span class="rolling-text">About</span></a>
+                            </li>
+                            <li class="menu-item main-nav-on">
+                                <a class="menu-link" href="playbook_mpr_landing.html#services"><span class="rolling-text">Services</span></a>
+                            </li>
+                            <li class="menu-item main-nav-on">
+                                <a class="menu-link" href="portfolio.html"><span class="rolling-text">Portfolio</span></a>
+                            </li>
+                            <li class="menu-item main-nav-on">
+                                <a class="menu-link" href="playbook_mpr_landing.html#contact"><span class="rolling-text">Contact</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="action-area">
+                        <div class="menu-btn">
+                            <div class="rts-offcanvas-wrapper">
+                                <div class="container-menu">
+                                    <div class="action-menu">
+                                        <div class="close-event"></div>
+                                        <div class="open-event">
+                                            <div class="burger">
+                                                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-close" data-v-649bbaab="">
+                                                    <line x1="13.788" y1="1.28816" x2="1.06011" y2="14.0161" stroke="currentColor" stroke-width="1.2"></line>
+                                                    <line x1="1.06049" y1="1.43963" x2="13.7884" y2="14.1675" stroke="currentColor" stroke-width="1.2"></line>
+                                                </svg>
+                                                <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-burger" data-v-649bbaab="">
+                                                    <line x1="18" y1="0.6" y2="0.6" stroke="currentColor" stroke-width="1.2" data-v-649bbaab=""></line>
+                                                    <line x1="18" y1="5.7167" y2="5.7167" stroke="currentColor" stroke-width="1.2" data-v-649bbaab=""></line>
+                                                    <line x1="18" y1="10.8334" y2="10.8334" stroke="currentColor" stroke-width="1.2" data-v-649bbaab=""></line>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rts-fs-menu">
+                                    <div class="rts-fs-container row">
+                                        <div class="rts-fs--nav col-12 col-md-6">
+                                            <ul id="primary-menu" class="navbar-nav-button">
+                                                <li class="menu-item"><a href="playbook_mpr_landing.html">Home</a></li>
+                                                <li class="menu-item"><a href="playbook_mpr_landing.html#about">About</a></li>
+                                                <li class="menu-item"><a href="playbook_mpr_landing.html#services">Services</a></li>
+                                                <li class="menu-item"><a href="portfolio.html">Portfolio</a></li>
+                                                <li class="menu-item"><a href="playbook_mpr_landing.html#contact">Contact</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="rts-fs--contacts col-12 col-md-6">
+                                            <div class="contact-inner">
+                                                <div class="contact-information">
+                                                    <h2 class="heading-title">Our Office</h2>
+                                                    <div class="address">
+                                                        <ul>
+                                                            <li>
+                                                                <p>26 Northwood Way, Upper Norwood, London SE19 1ET</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="playbook_mpr_landing.html#contact" class="rts-btn btn-primary">Book Free Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="portfolio-hero">
+            <div class="container">
+                <span class="section-label">Selected Work</span>
+                <h1 style="color:#fff; font-family:var(--font-primary); font-weight:800; font-size:3rem; margin:14px 0 18px;">
+                    Sites &amp; Apps We've Shipped
+                </h1>
+                <p style="color:var(--color-body); max-width:620px; font-size:1.05rem;">
+                    Salons, hospitality brands, and our own AI products, live in production right now. Hover any card for the story, click through to see it running.
+                </p>
+                <div class="portfolio-toggle">
+                    <button type="button" id="btn-grid" class="active">Grid</button>
+                    <button type="button" id="btn-carousel">Carousel</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="rts-section-gapBottom">
+            <div class="container">
+
+                <!-- GRID VIEW -->
+                <div class="portfolio-view active" id="view-grid">
+                    <div class="portfolio-grid" id="grid-container"></div>
+                </div>
+
+                <!-- CAROUSEL VIEW -->
+                <div class="portfolio-view" id="view-carousel">
+                    <div class="portfolio-carousel-track" id="carousel-container"></div>
+                    <div class="carousel-nav">
+                        <button type="button" id="carousel-prev" aria-label="Previous">&#8592;</button>
+                        <button type="button" id="carousel-next" aria-label="Next">&#8594;</button>
+                    </div>
+                </div>
+
+                <div class="portfolio-cta">
+                    <span class="section-label">Want one of these for your business?</span>
+                    <h3>Let's build yours.</h3>
+                    <p>Same process, same speed, tailored to what you actually need.</p>
+                    <a href="playbook_mpr_landing.html#contact" class="rts-btn btn-primary">Book Free Consultation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="rts-footer-area-one rts-section-gap">
+            <div class="container">
+                <div class="row rts-section-gapBottom">
+                    <div class="col-lg-12">
+                        <div class="footer-main-wrapper-one">
+                            <div class="footer-left-area">
+                                <a href="playbook_mpr_landing.html" class="logo-footer">
+                                    <img src="images/white logo.png" alt="Playbook MPR Logo" style="max-height: 60px; filter: brightness(0) invert(1);">
+                                </a>
+                                <p class="disc">
+                                    Creative Solutions; Because Most Problems Can't Be Solved Inside the Box <br>
+                                    Alien Brains. Unignorable. Undeniable.
+                                </p>
+                                <div class="rts-social-area-one">
+                                    <ul>
+                                        <li><a href="https://www.linkedin.com/company/playbook-mpr" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="footer-single-wized-start">
+                                <h5 class="title">Useful Links</h5>
+                                <ul class="footer-nav">
+                                    <li><a href="playbook_mpr_landing.html#about">About Us</a></li>
+                                    <li><a href="playbook_mpr_landing.html#services">Our Services</a></li>
+                                    <li><a href="portfolio.html">Portfolio</a></li>
+                                    <li><a href="playbook_mpr_landing.html#contact">Contact Us</a></li>
+                                    <li><a href="privacy.html">Privacy Policy</a></li>
+                                    <li><a href="terms.html">Terms of Service</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-single-wized-start">
+                                <h5 class="title">Contact Info</h5>
+                                <div class="mail-contact-area">
+                                    <div class="single-con-info mb--40">
+                                        <a href="#">26 Northwood Way, Upper Norwood <br> London SE19 1ET, UK</a>
+                                    </div>
+                                    <div class="single-con-info mail">
+                                        <a href="mailto:contact@playbookmpr.com">contact@playbookmpr.com</a>
+                                    </div>
+                                    <div class="single-con-info">
+                                        <a href="tel:+447729740898">+44 7729 740898</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-area text-center">
+                            <div class="left">
+                                <p>2024 &copy; <a href="playbook_mpr_landing.html">Playbook MPR</a>. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="assets/js/vendor/jquery.min.js"></script>
+    <script defer src="assets/js/plugins/bootstrap.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
+
+    <script>
+    (function() {
+        var items = [
+            { img: "images/portfolio/salt-life.jpg", title: "Salt Life Excursions", desc: "Turks & Caicos excursions marketplace. Book snorkeling, yacht days and island tours in a few clicks.", url: "https://salt-life-excursions.netlify.app", featured: true },
+            { img: "images/portfolio/bigheadz-global.jpg", title: "Big Headz Global", desc: "A fully automated e-commerce hat brand: custom checkout, AI-generated product shots, automated sourcing. No Shopify.", url: "https://bigheadzglobal.com" },
+            { img: "images/portfolio/aisha.jpg", title: "Aisha", desc: "A real-time 3D AI avatar with a custom lipsync engine, built from scratch.", url: "https://aishamk1.netlify.app" },
+            { img: "images/portfolio/lashes-by-nadia.jpg", title: "Lashes by Nadia", desc: "Chessington's premier lash studio. Built to book, not just to look pretty.", url: "https://lashes-by-nadia.netlify.app" },
+            { img: "images/portfolio/ht-nails.jpg", title: "H&T Star Nails", desc: "West Norwood nail studio site with a live gallery and one-tap booking.", url: "https://htnailslondon.netlify.app" },
+            { img: "images/portfolio/gipsy-hill-barbers.jpg", title: "Gipsy Hill Barbers", desc: "Open 7 days a week. A barber shop site that does its job and gets out of the way.", url: "https://giphillbarbers.netlify.app" },
+            { img: "images/portfolio/top-tier-nails.jpg", title: "TopTier Beauty", desc: "Luxe nail extensions, London. Bold brand, bold site.", url: "https://toptiernails.netlify.app" },
+            { img: "images/portfolio/creatish-hair.jpg", title: "CreaTish Hair", desc: "Natural hair care and braids by a licensed cosmetologist. Booking built in.", url: "https://creatish-hair.netlify.app" },
+            { img: "images/portfolio/yardie-callaloo.jpg", title: "Yardie Callaloo", desc: "A lightweight order-and-pickup site that turns a home food brand into a real storefront.", url: "https://yardiecallaloo.netlify.app" },
+            { img: "images/portfolio/bean-cafe.jpg", title: "Roasted Bean", desc: "Crystal Palace's neighbourhood coffee shop, online.", url: "https://beancafe.netlify.app" },
+            { img: "images/portfolio/bukhosi-caption.jpg", title: "Bukhosi Royal Wines", desc: "An AI captioning tool trained on the brand's own voice, built for a wine label.", url: "https://bukhosi-caption-generator.netlify.app" },
+            { img: "images/portfolio/hyland-house-coders.jpg", title: "Future Tech Builders", desc: "41 live student-built games and sites from a five-week coding club we ran and taught.", url: "https://hylandhouseschoolcoders.netlify.app" },
+            { img: "images/portfolio/navi-sibyl.jpg", title: "Navi & Sibyl", desc: "Two AI personalities sharing one chat line for a client's brand, with discernment routing.", url: "https://navi-sibyl-webchat.netlify.app" },
+            { img: "images/portfolio/supparay.jpg", title: "Supparay", desc: "A Vertex AI RAG chatbot with an actual personality, not a script.", url: "https://supparayworld.netlify.app" },
+            { img: "images/portfolio/type-beat-analyzer.jpg", title: "Type Beat Analyzer", desc: "Shazam for type beats. Real neural audio fingerprinting, not a gimmick.", url: "https://sparkly-crumble-09f512.netlify.app" },
+            { img: "images/portfolio/aesthetics-leads-engine.jpg", title: "Aesthetics Lead Engine", desc: "An autonomous B2B lead-gen pipeline for London aesthetics clinics.", url: "https://aesthetisine.netlify.app" },
+            { img: "images/portfolio/wheat-bot-dashboard.jpg", title: "Trading Bot Dashboard", desc: "A commodities signal system with a live portfolio dashboard.", url: "https://wheat-bot-dashboard.netlify.app" },
+            { img: "images/portfolio/j-coach.jpg", title: "J", desc: "A voice-first fitness coach with an honest personality. Built at a hackathon in a weekend.", url: "https://j-coach-app.netlify.app" },
+            { img: "images/portfolio/spoonfeed.jpg", title: "Spoon Feed", desc: "One step at a time. Turns any PDF into a guided, gamified walkthrough.", url: "https://spoonfeed-124.netlify.app" }
+        ];
+
+        function cardHTML(item) {
+            var featuredBadge = item.featured ? '<span class="featured-badge">Featured</span>' : '';
+            var featuredClass = item.featured ? ' featured' : '';
+            return '<a class="portfolio-card' + featuredClass + '" href="' + item.url + '" target="_blank" rel="noopener">' +
+                featuredBadge +
+                '<img src="' + item.img + '" alt="' + item.title + '" loading="lazy">' +
+                '<div class="overlay"><h3>' + item.title + '</h3><p>' + item.desc + '</p><span class="visit-link">Visit Site &rarr;</span></div>' +
+                '</a>';
+        }
+
+        var gridEl = document.getElementById('grid-container');
+        var carouselEl = document.getElementById('carousel-container');
+        items.forEach(function(item) {
+            gridEl.insertAdjacentHTML('beforeend', cardHTML(item));
+            carouselEl.insertAdjacentHTML('beforeend', cardHTML(item));
+        });
+
+        var btnGrid = document.getElementById('btn-grid');
+        var btnCarousel = document.getElementById('btn-carousel');
+        var viewGrid = document.getElementById('view-grid');
+        var viewCarousel = document.getElementById('view-carousel');
+
+        btnGrid.addEventListener('click', function() {
+            btnGrid.classList.add('active');
+            btnCarousel.classList.remove('active');
+            viewGrid.classList.add('active');
+            viewCarousel.classList.remove('active');
+        });
+        btnCarousel.addEventListener('click', function() {
+            btnCarousel.classList.add('active');
+            btnGrid.classList.remove('active');
+            viewCarousel.classList.add('active');
+            viewGrid.classList.remove('active');
+        });
+
+        document.getElementById('carousel-prev').addEventListener('click', function() {
+            document.getElementById('carousel-container').scrollBy({ left: -360, behavior: 'smooth' });
+        });
+        document.getElementById('carousel-next').addEventListener('click', function() {
+            document.getElementById('carousel-container').scrollBy({ left: 360, behavior: 'smooth' });
+        });
+    })();
+    </script>
+
+</body>
+
+</html>
