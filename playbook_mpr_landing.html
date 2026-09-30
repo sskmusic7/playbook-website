@@ -195,6 +195,10 @@
         .work-slide-overlay h4 { margin: 0 0 6px; font-size: 18px; }
         .work-slide-overlay p { margin: 0; font-size: 13px; color: #777; line-height: 1.4; max-height: 55px; overflow: hidden; }
         .work-featured-badge { display: inline-block; background: #2C5282; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+        .logo-area-white { display: block; }
+        .logo-area-dark { display: none; }
+        html.rts-light-mood .logo-area-white { display: none; }
+        html.rts-light-mood .logo-area-dark { display: block; }
     </style>
 </head>
 
@@ -205,7 +209,8 @@
         <div class="header-container-one">
             <div class="header-wrapper">
                 <a href="playbook_mpr_landing.html" class="logo">
-                    <img src="images/white logo 2.png" alt="Playbook MPR Logo" style="max-height: 120px; height: auto; width: auto;">
+                    <img class="logo-area-white" src="images/white logo 2.png" alt="Playbook MPR Logo" style="max-height: 120px; height: auto; width: auto;">
+                    <img class="logo-area-dark" src="images/Official Playbook Logo 2.png" alt="Playbook MPR Logo" style="max-height: 120px; height: auto; width: auto;">
                 </a>
                 <div class="header-right">
 
