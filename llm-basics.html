@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free LLM Basics workshop | Playbook MPR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  /* Where submissions go. Your Playbook backend route, or an Apps Script web app URL. */
+  :root{
+    --ink:#14213D; --gold:#E8B44A; --paper:#FFFFFF; --mist:#EEF1F6; --slate:#5B6478; --alert:#B3261E;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:18px;line-height:1.55;color:var(--ink);background:var(--mist);
+    padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .wrap{max-width:560px;margin:0 auto;padding:0 20px 48px}
+  header{background:var(--ink);color:#fff;margin:0 -20px;padding:40px 24px 56px;border-bottom:10px solid var(--gold)}
+  h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2.2rem,9vw,3.2rem);line-height:1;margin:0 0 16px;letter-spacing:-.02em}
+  header p{margin:0;font-size:1.05rem;color:#DCE2EE;max-width:34ch}
+  .card{background:var(--paper);border-radius:14px;padding:24px;margin-top:-28px;position:relative;box-shadow:0 2px 0 rgba(20,33,61,.08)}
+  .learn{margin:0 0 20px;padding-left:1.1em;color:var(--slate)}
+  .learn li{margin-bottom:4px}
+  label,.legend{display:block;font-weight:700;margin:18px 0 6px}
+  .hint{font-weight:400;color:var(--slate);font-size:.9rem}
+  input[type=text],input[type=email],input[type=tel],select{width:100%;font:inherit;padding:14px;border:2px solid #C9D0DC;border-radius:10px;background:#fff;color:var(--ink)}
+  input:focus,select:focus{outline:3px solid var(--gold);outline-offset:1px;border-color:var(--ink)}
+  fieldset{border:0;padding:0;margin:0}
+  .opt{display:flex;gap:12px;align-items:flex-start;padding:10px 0;font-weight:400;margin:0}
+  .opt input{width:22px;height:22px;margin-top:3px;accent-color:var(--ink);flex:none}
+  button{width:100%;margin-top:26px;font:inherit;font-weight:700;font-size:1.1rem;padding:16px;border:0;border-radius:10px;background:var(--gold);color:var(--ink);cursor:pointer}
+  button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  button[disabled]{opacity:.6;cursor:wait}
+  .err{color:var(--alert);font-weight:700;margin-top:14px;min-height:1.2em}
+  .done{display:none}
+  .done h2{font-family:"Bricolage Grotesque",sans-serif;font-size:2rem;margin:0 0 12px}
+  .done ol{padding-left:1.2em}
+  footer{margin-top:28px;color:var(--slate);font-size:.9rem;text-align:center}
+  footer a{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Get more out of your AI</h1>
+    <p>A free live workshop on Zoom with Kayah Mitchell. Bring whichever AI you use: ChatGPT, Claude, Gemini or Copilot.</p>
+  </header>
+
+  <div class="card">
+    <form id="signup" novalidate>
+      <ul class="learn">
+        <li>Ask better questions and get better answers</li>
+        <li>A full Gemini Notebook walkthrough</li>
+        <li>Everyday uses for home, work and church</li>
+      </ul>
+
+      <label for="name">First name</label>
+      <input id="name" name="name" type="text" autocomplete="given-name" required>
+
+      <label for="email">Email <span class="hint">(the Zoom link comes here)</span></label>
+      <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+
+      <label for="phone">Mobile <span class="hint">(optional, for a text reminder)</span></label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+
+      <label for="ai">Which AI do you use most?</label>
+      <select id="ai" name="ai">
+        <option value="">Choose one</option>
+        <option>ChatGPT</option><option>Claude</option><option>Gemini</option><option>Copilot</option>
+        <option>Meta AI (WhatsApp)</option><option>Not using one yet</option>
+      </select>
+
+      <fieldset>
+        <span class="legend">What would help you most? <span class="hint">(tick any)</span></span>
+        <label class="opt"><input type="checkbox" name="interests" value="Basics">Getting started with the basics</label>
+        <label class="opt"><input type="checkbox" name="interests" value="Gemini Notebook">Gemini Notebook (formerly NotebookLM)</label>
+        <label class="opt"><input type="checkbox" name="interests" value="Family and home">Family and home life</label>
+        <label class="opt"><input type="checkbox" name="interests" value="Business or ministry">My business or ministry</label>
+        <label class="opt"><input type="checkbox" name="interests" value="Consultation">A one to one consultation</label>
+      </fieldset>
+
+      <fieldset>
+        <span class="legend">Staying in touch</span>
+        <label class="opt"><input type="checkbox" id="consentEmail" name="consentEmail" required>Email me the workshop link and occasional AI tips from Playbook MPR. I can unsubscribe any time.</label>
+        <label class="opt"><input type="checkbox" id="consentSms" name="consentSms">Text me a reminder before the workshop.</label>
+      </fieldset>
+
+      <button type="submit" id="go">Save my place</button>
+      <p class="err" id="err" role="alert"></p>
+    </form>
+
+    <div class="done" id="done" tabindex="-1">
+      <h2>Your place is saved</h2>
+      <p>We've sent a confirmation email from <strong>Playbook MPR</strong>. To make sure the Zoom link reaches you:</p>
+      <ol>
+        <li>Open the email and tap the confirm button.</li>
+        <li>Not there? Check Spam or Promotions, and move it to your main inbox.</li>
+        <li>Save our address to your contacts.</li>
+      </ol>
+    </div>
+  </div>
+
+  <footer>Playbook MPR · <a href="https://playbookmpr.com">playbookmpr.com</a></footer>
+</div>
+
+<script>
+// Set this to your backend route or Apps Script web app URL.
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbxhEcltPyAe7vB_WcGBvALRvUssUbyy9ve2Ka98z7aQ91cG4f_XWaiv0s3RasgvqFfp/exec";
+const SOURCE = "AI and the Family, Slough, 3 Oct 2026";
+
+const form = document.getElementById("signup");
+const err = document.getElementById("err");
+const btn = document.getElementById("go");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  err.textContent = "";
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  if (!name) { err.textContent = "Add your first name."; form.name.focus(); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = "Check your email address, it looks incomplete."; form.email.focus(); return; }
+  if (!form.consentEmail.checked) { err.textContent = "Tick the email box so we can send you the Zoom link."; return; }
+
+  const data = {
+    timestamp: new Date().toISOString(),
+    source: SOURCE,
+    name, email,
+    phone: form.phone.value.trim(),
+    ai: form.ai.value,
+    interests: [...form.querySelectorAll('input[name=interests]:checked')].map(i => i.value).join(", "),
+    consentEmail: true,
+    consentSms: form.consentSms.checked
+  };
+
+  if (!ENDPOINT) { err.textContent = "Signup isn't connected yet. Set ENDPOINT in this page."; return; }
+
+  btn.disabled = true; btn.textContent = "Saving your place";
+  try {
+    // text/plain avoids a CORS preflight, so this works with Apps Script too
+    await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
+    form.style.display = "none";
+    const done = document.getElementById("done");
+    done.style.display = "block"; done.focus();
+  } catch (x) {
+    btn.disabled = false; btn.textContent = "Save my place";
+    err.textContent = "That didn't send. Check your connection and try again.";
+  }
+});
+</script>
+</body>
+</html>

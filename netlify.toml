@@ -11,3 +11,8 @@
   from = "/index.html"
   to = "/playbook_mpr_landing.html"
   status = 301
+
+[[redirects]]
+  from = "/llm-basics"
+  to = "/llm-basics.html"
+  status = 200
