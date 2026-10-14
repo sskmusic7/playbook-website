@@ -16,3 +16,8 @@
   from = "/llm-basics"
   to = "/llm-basics.html"
   status = 200
+
+[[redirects]]
+  from = "/join"
+  to = "/join.html"
+  status = 200
