@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Automation Bootcamp | Playbook MPR</title>
+<meta name="description" content="A four-week online bootcamp with Kayah Mitchell. Each week, build one working automation: clipping, e-commerce, social media and email.">
+<meta property="og:title" content="Automation Bootcamp | Playbook MPR">
+<meta property="og:description" content="Four weeks, four working automations, built live with Kayah Mitchell.">
+<link rel="icon" href="/images/Official%20Playbook%20Logo%20P.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14213D; --gold:#E8B44A; --paper:#FFFFFF; --mist:#EEF1F6; --slate:#5B6478; --alert:#B3261E; --line:#DDE2EA;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0}
+  body{font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:18px;line-height:1.55;color:var(--ink);background:var(--mist);
+    padding-bottom:env(safe-area-inset-bottom,0px)}
+  .hero{background:var(--ink);color:#fff;border-bottom:10px solid var(--gold);padding:calc(28px + env(safe-area-inset-top,0px)) 20px 72px}
+  .in{max-width:720px;margin:0 auto}
+  .logo{display:block;width:200px;height:auto;margin-bottom:48px}
+  .tag{display:inline-block;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:6px 10px;margin:0 0 18px}
+  h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2.6rem,11vw,4.4rem);line-height:.95;margin:0 0 20px;letter-spacing:-.025em}
+  .hero p{margin:0 0 28px;font-size:1.15rem;color:#DCE2EE;max-width:40ch}
+  .cta{display:inline-block;font-weight:700;font-size:1.1rem;padding:16px 26px;background:var(--gold);color:var(--ink);text-decoration:none}
+  .cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+  section{padding:56px 20px}
+  h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.8rem,7vw,2.4rem);line-height:1.05;margin:0 0 24px;letter-spacing:-.02em}
+  .weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border-top:4px solid var(--ink)}
+  .week{padding:18px 16px 18px 0;border-bottom:1px solid var(--line)}
+  .week b{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+  .week h3{font-family:"Bricolage Grotesque",sans-serif;font-size:1.35rem;margin:0 0 6px}
+  .week p{margin:0;color:var(--slate);font-size:.95rem}
+  .facts{list-style:none;margin:0;padding:0}
+  .facts li{padding:14px 0;border-bottom:1px solid var(--line)}
+  .facts strong{display:block}
+  .free{background:var(--paper)}
+  .free p{max-width:52ch;margin:0}
+  #join{background:var(--ink);color:#fff}
+  #join h2{color:#fff}
+  #join .lede{color:#DCE2EE;margin:0 0 24px}
+  .card{background:var(--paper);color:var(--ink);padding:24px;max-width:560px}
+  label,.legend{display:block;font-weight:700;margin:18px 0 6px}
+  .card label:first-of-type{margin-top:0}
+  .hint{font-weight:400;color:var(--slate);font-size:.9rem}
+  input[type=text],input[type=email],input[type=tel]{width:100%;font:inherit;padding:14px;border:2px solid #C9D0DC;border-radius:0;background:#fff;color:var(--ink)}
+  input:focus{outline:3px solid var(--gold);outline-offset:1px;border-color:var(--ink)}
+  fieldset{border:0;padding:0;margin:0}
+  .opt{display:flex;gap:12px;align-items:flex-start;padding:8px 0;font-weight:400;margin:0}
+  .opt input{width:22px;height:22px;margin-top:3px;accent-color:var(--ink);flex:none}
+  .consent{margin-top:20px;padding-top:14px;border-top:1px solid var(--line)}
+  /* Hidden from people, irresistible to bots. */
+  .trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  button{width:100%;margin-top:24px;font:inherit;font-weight:700;font-size:1.1rem;padding:16px;border:0;background:var(--gold);color:var(--ink);cursor:pointer}
+  button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  button[disabled]{opacity:.6;cursor:wait}
+  .err{color:var(--alert);font-weight:700;margin:14px 0 0;min-height:1.2em}
+  .done{display:none}
+  .done h3{font-family:"Bricolage Grotesque",sans-serif;font-size:1.8rem;margin:0 0 12px}
+  .done ol{padding-left:1.2em;margin-bottom:0}
+  footer{padding:28px 20px 40px;color:var(--slate);font-size:.9rem;text-align:center}
+  footer a{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="in">
+    <a href="https://playbookmpr.com"><img class="logo" src="/images/white%20logo%202.png" alt="Playbook MPR" width="990" height="150"></a>
+    <p class="tag">Free for AI Builders London</p>
+    <h1>Automation Bootcamp</h1>
+    <p>Four weeks with Kayah Mitchell. Each week, you watch a real automated system run, then build a working version of it yourself.</p>
+    <a class="cta" href="#join">Save my place</a>
+  </div>
+</header>
+
+<section>
+  <div class="in">
+    <h2>One working system a week</h2>
+    <div class="weeks">
+      <div class="week"><b>Week 1</b><h3>Clipping</h3><p>Turn a long video or live stream into ranked, captioned short clips.</p></div>
+      <div class="week"><b>Week 2</b><h3>E-commerce</h3><p>Automate sourcing, pricing, product photos and listings.</p></div>
+      <div class="week"><b>Week 3</b><h3>Social media</h3><p>Research, draft, check and post content without doing it by hand.</p></div>
+      <div class="week"><b>Week 4</b><h3>Email</h3><p>Capture leads and send a newsletter that runs itself.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="free">
+  <div class="in">
+    <h2>How it works</h2>
+    <ul class="facts">
+      <li><strong>Online, once a week, 90 minutes</strong>A live demo of the finished system, then we build the core of it together.</li>
+      <li><strong>You leave with something that works</strong>Every session ends with a working automation and a short task to take further.</li>
+      <li><strong>No experience needed</strong>If you can follow along on a laptop, you can do this.</li>
+      <li><strong>Dates by email</strong>Sign up below and the dates, joining link and anything to prepare will come to your inbox.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="join">
+  <div class="in">
+    <h2>Save your place</h2>
+    <p class="lede">Everyone at AI Builders London gets free access.</p>
+    <div class="card">
+      <form id="signup" novalidate>
+        <label for="name">First name</label>
+        <input id="name" name="name" type="text" autocomplete="given-name" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+
+        <label for="organisation">Business or project <span class="hint">(optional)</span></label>
+        <input id="organisation" name="organisation" type="text" autocomplete="organization">
+
+        <label for="phone">Mobile <span class="hint">(optional, for session reminders)</span></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+
+        <fieldset>
+          <span class="legend">Which weeks interest you most? <span class="hint">(tick any)</span></span>
+          <label class="opt"><input type="checkbox" name="interests" value="Clipping">Clipping</label>
+          <label class="opt"><input type="checkbox" name="interests" value="E-commerce">E-commerce</label>
+          <label class="opt"><input type="checkbox" name="interests" value="Social media">Social media</label>
+          <label class="opt"><input type="checkbox" name="interests" value="Email">Email</label>
+        </fieldset>
+
+        <div class="trap" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <fieldset class="consent">
+          <label class="opt"><input type="checkbox" id="consentEmail" name="consentEmail" required>Email me about the Automation Bootcamp and other updates from Playbook MPR. I can unsubscribe at any time.</label>
+          <label class="opt"><input type="checkbox" id="consentSms" name="consentSms">Text me session reminders.</label>
+        </fieldset>
+
+        <button type="submit" id="go">Save my place</button>
+        <p class="err" id="err" role="alert"></p>
+      </form>
+
+      <div class="done" id="done" tabindex="-1">
+        <h3>Your place is saved</h3>
+        <p>Thanks for signing up. Bootcamp emails come from <strong>kayah.mitchell@playbookmpr.com</strong>.</p>
+        <ol>
+          <li>Dates and the joining link will arrive by email.</li>
+          <li>If nothing arrives, check Spam or Promotions and move it to your main inbox.</li>
+          <li>Questions? Reply to any of the emails.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Playbook MPR · <a href="https://playbookmpr.com">playbookmpr.com</a> · <a href="/privacy.html">Privacy</a></footer>
+
+<script>
+// The Playbook email system (Apps Script). list:"bootcamp" also files the
+// signup on the Bootcamp tab, so bootcamp emails reach only these people.
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbx4VhpkQW6hXXgIP1Io-RNKfd9le1z_fRVjrD85YmyFVDz4YWBEEKBJ-ZWIW63awntg/exec";
+const EVENT = new URLSearchParams(location.search).get("event") || "";
+
+const form = document.getElementById("signup");
+const err = document.getElementById("err");
+const btn = document.getElementById("go");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  err.textContent = "";
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  if (!name) { err.textContent = "Add your first name."; form.name.focus(); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = "Check your email address, it looks incomplete."; form.email.focus(); return; }
+  if (!form.consentEmail.checked) { err.textContent = "Tick the email box so the dates can reach you."; return; }
+
+  const data = {
+    action: "signup",
+    list: "bootcamp",
+    event: EVENT,
+    name, email,
+    organisation: form.organisation.value.trim(),
+    phone: form.phone.value.trim(),
+    interests: [...form.querySelectorAll('input[name=interests]:checked')].map(i => i.value).join(", "),
+    consentEmail: true,
+    consentSms: form.consentSms.checked,
+    website: form.website.value
+  };
+
+  btn.disabled = true; btn.textContent = "Saving your place";
+  try {
+    // text/plain avoids a CORS preflight, so this works with Apps Script.
+    const res = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error || "That didn't go through.");
+    form.style.display = "none";
+    const done = document.getElementById("done");
+    done.style.display = "block"; done.focus();
+  } catch (x) {
+    btn.disabled = false; btn.textContent = "Save my place";
+    err.textContent = x && x.message && !/fetch|network|JSON/i.test(x.message) ? x.message : "That didn't send. Check your connection and try again.";
+  }
+});
+</script>
+</body>
+</html>
