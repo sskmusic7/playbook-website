@@ -26,3 +26,14 @@
   from = "/bootcamp"
   to = "/bootcamp.html"
   status = 200
+
+# The AI Builders demo dashboard lives on its own Netlify site; serve it here.
+[[redirects]]
+  from = "/studio"
+  to = "/studio/"
+  status = 301
+
+[[redirects]]
+  from = "/studio/*"
+  to = "https://kayah-automation-studio.netlify.app/:splat"
+  status = 200
