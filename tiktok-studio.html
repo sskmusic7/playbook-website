@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikTok Studio - Playbook MPR</title>
+<meta name="description" content="Playbook MPR's TikTok Studio lets authorised Playbook MPR and client accounts upload and publish short videos directly to their own TikTok account.">
+<link rel="stylesheet" href="/tiktok-studio.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="mark"></span>Playbook MPR &middot; TikTok Studio</a>
+    <nav class="site-nav">
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+      <a href="#" id="logoutLink">Log out</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div id="loadingState">
+      <p>Loading your account...</p>
+    </div>
+
+    <div id="signedOutState" style="display:none">
+      <h1>TikTok Studio</h1>
+      <p>Log in with TikTok to upload and publish a video to your own TikTok account.</p>
+      <a class="btn" href="/api/auth-start">Log in with TikTok</a>
+    </div>
+
+    <div id="appState" style="display:none">
+      <div class="user-row">
+        <img id="userAvatar" class="avatar" src="" alt="">
+        <div>
+          <div id="userName" style="font-weight:700;"></div>
+          <div class="fine" style="color:var(--text-dim);font-size:13px;">Signed in with TikTok</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Account posting limits</h3>
+        <p class="limits" id="creatorLimits">Loading creator info...</p>
+      </div>
+
+      <div class="card">
+        <h3>Publish a video</h3>
+
+        <label for="videoFile">Video file</label>
+        <input type="file" id="videoFile" accept="video/mp4,video/quicktime,video/webm">
+
+        <label for="titleField">Title / caption</label>
+        <textarea id="titleField" maxlength="2200" placeholder="Write a title or caption for this post"></textarea>
+
+        <label for="privacyLevel">Who can view this post</label>
+        <select id="privacyLevel">
+          <option value="" selected disabled>Choose an audience</option>
+        </select>
+
+        <div class="toggle-row">
+          <div>
+            <span class="label-text">Allow comments</span>
+          </div>
+          <input type="checkbox" id="allowComments" checked>
+        </div>
+        <div class="toggle-row">
+          <div>
+            <span class="label-text">Allow duet</span>
+          </div>
+          <input type="checkbox" id="allowDuet" checked>
+        </div>
+        <div class="toggle-row">
+          <div>
+            <span class="label-text">Allow stitch</span>
+          </div>
+          <input type="checkbox" id="allowStitch" checked>
+        </div>
+        <div class="toggle-row">
+          <div>
+            <span class="label-text">This post promotes a brand, product or service</span>
+            <span class="hint">Turn this on if the content is a paid partnership or promotes a business, as required by TikTok's branded content policy.</span>
+          </div>
+          <input type="checkbox" id="commercialToggle">
+        </div>
+
+        <div class="notice">By posting, you agree to TikTok's Music Usage Confirmation.</div>
+
+        <button class="btn" id="postButton" style="margin-top:12px;" disabled>Post to TikTok</button>
+        <div class="status-line" id="statusLine"></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a href="/terms">Terms of Service</a>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+    <div class="fine">Playbook MPR &middot; sskmusic7@gmail.com</div>
+  </div>
+</footer>
+
+<script src="/tiktok-studio.js"></script>
+</body>
+</html>
