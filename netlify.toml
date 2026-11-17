@@ -52,6 +52,11 @@
   to = "/bootcamp.html"
   status = 200
 
+[[redirects]]
+  from = "/clip"
+  to = "/clip.html"
+  status = 200
+
 # The AI Builders demo dashboard lives on its own Netlify site; serve it here.
 [[redirects]]
   from = "/studio/*"

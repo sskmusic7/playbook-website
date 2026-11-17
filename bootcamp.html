@@ -10,6 +10,14 @@
 <meta name="theme-color" content="#0b0a09">
 <link rel="icon" href="/images/Official%20Playbook%20Logo%20P.png">
 <link rel="stylesheet" href="/fonts/studio-fonts.css">
+<!-- META PIXEL (not live yet). To switch on: replace PIXEL_ID with the real pixel ID, then remove this comment wrapper.
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"></noscript>
+-->
 <style>
   :root{--bg:#0b0a09;--card:#151311;--line:#2b2723;--ink:#ede8e1;--soft:#c9c1b6;--muted:#968d81;--accent:#f2b22c;--alert:#ff8a7a}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -270,6 +278,8 @@ form.addEventListener("submit", async (e) => {
     const res = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
     const out = await res.json();
     if (!out.ok) throw new Error(out.error || "That didn't go through.");
+    // META PIXEL: when the pixel above is switched on, also uncomment the next line.
+    // if (window.fbq) fbq('track', 'Lead');
     form.style.display = "none";
     const done = document.getElementById("done");
     done.style.display = "block"; done.focus();

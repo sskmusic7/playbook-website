@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free Clipping Guide | Playbook MPR</title>
+<meta name="description" content="Get the free guide to turning long videos into short clips, with three ways to start. From Kayah Mitchell at Playbook MPR.">
+<meta property="og:title" content="Free Clipping Guide | Playbook MPR">
+<meta property="og:description" content="Three ways to turn long videos into short clips, in one free guide.">
+<meta name="theme-color" content="#0b0a09">
+<link rel="icon" href="/images/Official%20Playbook%20Logo%20P.png">
+<link rel="stylesheet" href="/fonts/studio-fonts.css">
+<!-- META PIXEL (not live yet). To switch on: replace PIXEL_ID with the real pixel ID, then remove this comment wrapper.
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"></noscript>
+-->
+<style>
+  :root{--bg:#0b0a09;--card:#151311;--line:#2b2723;--ink:#ede8e1;--soft:#c9c1b6;--muted:#968d81;--accent:#f2b22c;--alert:#ff8a7a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:400 17px/1.55 'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .in{max-width:1080px;margin:0 auto;padding:0 20px}
+  .mono{font-family:'Geist Mono',ui-monospace,monospace}
+  .dot{font-family:'Doto','Geist Mono',monospace;font-weight:900;letter-spacing:-.01em}
+
+  /* Top bar */
+  .bar{position:sticky;top:0;z-index:5;background:rgba(11,10,9,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar .in{display:flex;align-items:center;justify-content:space-between;height:64px;padding-top:env(safe-area-inset-top,0px)}
+  .bar img{height:22px;width:auto;display:block}
+  .bar nav{display:flex;gap:22px;align-items:center;font:500 13px/1 'Geist Mono',monospace;color:var(--muted)}
+  .bar nav a{text-decoration:none}
+  .bar nav a:hover{color:var(--ink)}
+  .bar .go{color:var(--bg);background:var(--accent);padding:10px 14px}
+  .bar .go:hover{color:var(--bg)}
+  @media (max-width:560px){.bar nav .hide{display:none}}
+
+  /* Hero */
+  .hero{padding:96px 0 88px;border-bottom:1px solid var(--line)}
+  .kicker{font:600 14px/1 'Geist Mono',monospace;color:var(--accent)}
+  .hero h1{font-size:clamp(52px,12vw,128px);line-height:.92;margin:22px 0 28px}
+  .hero p.lede{font-size:clamp(19px,2.4vw,23px);line-height:1.45;color:var(--soft);max-width:30ch}
+  .hero .row{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+  .btn{display:inline-block;font:600 16px/1 'Geist',sans-serif;padding:18px 24px;text-decoration:none;border:1px solid var(--accent)}
+  .btn.solid{background:var(--accent);color:var(--bg)}
+  .btn.line{color:var(--ink);border-color:var(--line)}
+  .btn.line:hover{border-color:var(--ink)}
+  .btn:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:72px;border-top:1px solid var(--line)}
+  .facts div{padding:18px 18px 0 0}
+  .facts b{display:block;font:900 clamp(34px,5vw,52px)/1 'Doto',monospace;color:var(--ink)}
+  .facts span{display:block;margin-top:8px;font:500 13px/1.3 'Geist Mono',monospace;color:var(--muted)}
+  @media (max-width:640px){.facts{grid-template-columns:repeat(2,1fr)}.facts div{padding-bottom:18px}}
+
+  section{padding:88px 0;border-bottom:1px solid var(--line)}
+  h2{font:900 clamp(34px,6vw,60px)/1 'Doto','Geist Mono',monospace;margin-bottom:14px}
+  .sub{color:var(--muted);max-width:52ch;margin-bottom:44px}
+
+  /* Weeks */
+  .weeks{list-style:none;border-top:1px solid var(--line)}
+  .weeks li{display:grid;grid-template-columns:120px 1fr 1.3fr;gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line)}
+  .weeks .n{font:900 56px/1 'Doto',monospace;color:var(--accent)}
+  .weeks h3{font:700 26px/1.15 'Geist',sans-serif}
+  .weeks p{color:var(--soft)}
+  @media (max-width:720px){.weeks li{grid-template-columns:72px 1fr;gap:8px 16px}.weeks .n{font-size:40px;grid-row:span 2}}
+
+  /* Session timeline: segment widths are the real minutes out of 60 */
+  .timeline{display:flex;border:1px solid var(--line)}
+  .seg{padding:18px 16px;border-right:1px solid var(--line);min-width:0}
+  .seg:last-child{border-right:0}
+  .seg.build{background:var(--card)}
+  .seg .m{font:600 13px/1 'Geist Mono',monospace;color:var(--accent)}
+  .seg h3{font:700 18px/1.2 'Geist',sans-serif;margin-top:10px}
+  .seg p{font-size:14px;color:var(--muted);margin-top:6px}
+  @media (max-width:720px){.timeline{flex-direction:column}.seg{flex:none!important;border-right:0;border-bottom:1px solid var(--line)}.seg:last-child{border-bottom:0}}
+
+  /* Demo link */
+  .demo{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .demo p{color:var(--soft);max-width:46ch}
+
+  /* Join */
+  #join{border-bottom:0;padding-bottom:64px}
+  .join{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  @media (max-width:860px){.join{grid-template-columns:1fr;gap:32px}}
+  .free{font:900 clamp(30px,4.6vw,44px)/1.05 'Doto',monospace;color:var(--accent);margin:18px 0 18px}
+  .join .copy p{color:var(--soft);max-width:38ch}
+  form{display:grid;gap:16px}
+  label.f{display:grid;gap:8px;font:500 13px/1 'Geist Mono',monospace;color:var(--muted)}
+  input[type=text],input[type=email],input[type=tel]{background:var(--card);border:1px solid var(--line);color:var(--ink);font:400 17px/1.3 'Geist',sans-serif;padding:15px 14px;width:100%;border-radius:0}
+  input:focus{outline:2px solid var(--accent);outline-offset:0}
+  .legend{font:500 13px/1 'Geist Mono',monospace;color:var(--muted);margin-bottom:10px}
+  fieldset{border:0}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip span{display:inline-block;padding:11px 14px;border:1px solid var(--line);font:500 15px/1 'Geist',sans-serif;color:var(--soft);cursor:pointer;user-select:none}
+  .chip input:checked + span{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+  .chip input:focus-visible + span{outline:2px solid var(--ink);outline-offset:2px}
+  .tick{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--soft);cursor:pointer}
+  .tick input{width:20px;height:20px;margin-top:2px;accent-color:var(--accent);flex:none}
+  .trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  button{margin-top:6px;background:var(--accent);color:var(--bg);border:0;font:600 17px/1 'Geist',sans-serif;padding:19px;cursor:pointer;border-radius:0;width:100%}
+  button[disabled]{opacity:.6;cursor:wait}
+  .err{color:var(--alert);font-weight:500;min-height:1.2em}
+  .done{display:none;border:1px solid var(--line);padding:32px;background:var(--card)}
+  .done h3{font:900 34px/1.05 'Doto',monospace;color:var(--accent);margin-bottom:16px}
+  .done p,.done li{color:var(--soft)}
+  .done ol{margin:16px 0 0 1.2em;display:grid;gap:6px}
+
+  footer{border-top:1px solid var(--line);padding:28px 0 calc(36px + env(safe-area-inset-bottom,0px))}
+  footer .in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:500 13px/1.4 'Geist Mono',monospace;color:var(--muted)}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--ink)}
+
+  .methods{list-style:none;border-top:1px solid var(--line)}
+  .methods li{display:grid;grid-template-columns:120px 1fr 1.3fr;gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line)}
+  .methods .n{font:900 56px/1 'Doto',monospace;color:var(--accent)}
+  .methods h3{font:700 26px/1.15 'Geist',sans-serif}
+  .methods p{color:var(--soft)}
+  .soon{display:inline-block;margin-left:10px;font:600 12px/1 'Geist Mono',monospace;color:var(--accent);border:1px solid var(--accent);padding:5px 8px;vertical-align:middle}
+  @media (max-width:720px){.methods li{grid-template-columns:72px 1fr;gap:8px 16px}.methods .n{font-size:40px;grid-row:span 2}}
+  .done .btn{margin-top:22px}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="in">
+    <a href="https://playbookmpr.com" aria-label="Playbook MPR home"><img src="/images/white%20logo%202.png" alt="Playbook MPR" width="990" height="150"></a>
+    <nav>
+      <a class="hide" href="#methods">The three methods</a>
+      <a class="go" href="#join">Get the guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="in">
+      <p class="kicker">Playbook MPR · Free guide</p>
+      <h1 class="dot">Clip<br>it.</h1>
+      <p class="lede">Get the free guide to turning long videos into short clips, and a few short emails to help you make your first one.</p>
+      <div class="row">
+        <a class="btn solid" href="#join">Get the free guide</a>
+        <a class="btn line" href="#methods">See the three methods</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="methods">
+    <div class="in">
+      <h2>Three ways to start</h2>
+      <p class="sub">The guide covers each one in plain steps, so you can pick the one that suits you and make a first clip this week.</p>
+      <ol class="methods">
+        <li><span class="n">01</span><h3>Ssemble</h3><p>A ready-made tool that finds the best moments in a long video and cuts them for you. The quickest way to a first clip.</p></li>
+        <li><span class="n">02</span><h3>Content Rewards</h3><p>Creators publish their content and invite others to clip it. The guide explains how that works and what to check before you start.</p></li>
+        <li><span class="n">03</span><h3>The free clipper<span class="soon">COMING SOON</span></h3><p>Kayah’s own clipper, free to use with your own API key. You will hear about it first by email.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="in join">
+      <div class="copy">
+        <h2>Get the guide</h2>
+        <p class="free">Free. It comes straight to your inbox.</p>
+        <p>Add your name and email and the guide arrives in a minute or two from kayah.mitchell@playbookmpr.com. A few short, practical emails follow, and you can unsubscribe at any time.</p>
+      </div>
+
+      <div>
+        <form id="signup" novalidate>
+          <label class="f">First name<input id="name" name="name" type="text" autocomplete="given-name" required></label>
+          <label class="f">Email<input id="email" name="email" type="email" autocomplete="email" inputmode="email" required></label>
+
+          <div class="trap" aria-hidden="true">
+            <label>Leave this empty<input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          </div>
+
+          <label class="tick"><input type="checkbox" id="consentEmail" name="consentEmail" required>Email me the free clipping guide and follow-up tips from Playbook MPR. I can unsubscribe at any time.</label>
+
+          <button type="submit" id="go">Send me the guide</button>
+          <p class="err" id="err" role="alert"></p>
+        </form>
+
+        <div class="done" id="done" tabindex="-1">
+          <h3>Check your inbox.</h3>
+          <p>Your guide is on its way from <strong>kayah.mitchell@playbookmpr.com</strong>. It usually arrives within a couple of minutes.</p>
+          <ol>
+            <li>If nothing arrives, check Spam or Promotions and move it to your main inbox.</li>
+            <li>Questions? Reply to any of the emails. Kayah reads them.</li>
+          </ol>
+          <a class="btn solid" id="dl" href="https://playbookmpr.com/guides/clip-it-guide.pdf" download>Download the guide now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">
+    <span>Playbook MPR · Free clipping guide</span>
+    <span><a href="https://playbookmpr.com">playbookmpr.com</a> · <a href="/privacy.html">Privacy</a></span>
+  </div>
+</footer>
+
+<script>
+// The Playbook email system (Apps Script). list:"clip" files the signup on the
+// Clip tab and sends the guide email straight away.
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbx4VhpkQW6hXXgIP1Io-RNKfd9le1z_fRVjrD85YmyFVDz4YWBEEKBJ-ZWIW63awntg/exec";
+
+const form = document.getElementById("signup");
+const err = document.getElementById("err");
+const btn = document.getElementById("go");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  err.textContent = "";
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  if (!name) { err.textContent = "Add your first name."; form.name.focus(); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = "Check your email address, it looks incomplete."; form.email.focus(); return; }
+  if (!form.consentEmail.checked) { err.textContent = "Tick the email box so the guide can reach you."; return; }
+
+  const data = {
+    action: "signup",
+    list: "clip",
+    name, email,
+    consentEmail: true,
+    website: form.website.value
+  };
+
+  btn.disabled = true; btn.textContent = "Sending";
+  try {
+    // text/plain avoids a CORS preflight, so this works with Apps Script.
+    const res = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error || "That didn't go through.");
+    // META PIXEL: when the pixel above is switched on, also uncomment the next line.
+    // if (window.fbq) fbq('track', 'Lead');
+    form.style.display = "none";
+    const done = document.getElementById("done");
+    done.style.display = "block"; done.focus();
+  } catch (x) {
+    btn.disabled = false; btn.textContent = "Send me the guide";
+    err.textContent = x && x.message && !/fetch|network|JSON/i.test(x.message) ? x.message : "That didn't send. Check your connection and try again.";
+  }
+});
+</script>
+</body>
+</html>
