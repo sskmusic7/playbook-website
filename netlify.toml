@@ -62,3 +62,11 @@
   from = "/studio/*"
   to = "https://kayah-automation-studio.netlify.app/:splat"
   status = 200
+
+# Playbook Clipper (free bring-your-own-key clipper) lives on its own Netlify site; serve it here.
+# No /clipper -> /clipper/ redirect (it loops); the app's index.html fixes the slash with JS.
+[[redirects]]
+  from = "/clipper/*"
+  to = "https://playbook-clipper.netlify.app/:splat"
+  status = 200
+  force = true
